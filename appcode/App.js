@@ -6,7 +6,7 @@ import {
   Navigator
 } from 'react-native';
 
-// third party componebts
+// third party components
 import SideMenu from 'react-native-side-menu';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // padding statusbar
@@ -61,7 +61,7 @@ class FireApp extends Component {
 
   // render the scene
   _renderScene(route, navigator) {
-    // may need the navigator on children level
+    // may need the navigator on child level
     // such as listings, so pass that down
     let globalNavigatorProps = {navigator}
 
@@ -93,7 +93,7 @@ class FireApp extends Component {
   // render the app
   render() {
     // Set the menu component, which keeps the side menu links
-    // A method is injected as prop to be able to trigger is from the menu component
+    // A method is injected as prop to trigger the link clicks
     const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
 
     return (
@@ -107,7 +107,7 @@ class FireApp extends Component {
           <Navigator
             initialRoute={{id: 'Page'}}
             style={styles.container}
-            // magic part, this is setting the navigator to the props
+            // this is setting the navigator to the props
             ref={(navigator) => { this.provideNavigatorProps(navigator)}}
             renderScene={(route, navigator) => { return this._renderScene(route, navigator)}}
             configureScene = {(route) => ({
